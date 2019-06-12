@@ -8,10 +8,10 @@ const config = {
     appId: "1:374203114105:web:4226cba8e86d3641"
 };
 
-firebase.initialize(config);
+firebase.initializeApp(config);
 var database = firebase.database();
 
-$(".employer-info").on("submit", function(event) {
+$("form").on("submit", function(event) {
     event.preventDefault();
     var name = $(".name").val().trim();
     var role = $(".role").val().trim();
@@ -24,5 +24,4 @@ $(".employer-info").on("submit", function(event) {
         rate: rate
     }
     database.ref().push(formObject);
-    return false;
 })
