@@ -16,7 +16,7 @@ $("form").on("submit", function(event) {
     var name = $(".name").val().trim();
     var role = $(".role").val().trim();
     var startDate = $(".start-date").val().trim();
-    var rate = $(".role").val().trim();
+    var rate = $(".rate").val().trim();
     var formObject = {
         name: name,
         role: role,
@@ -24,4 +24,18 @@ $("form").on("submit", function(event) {
         rate: rate
     }
     database.ref().push(formObject);
+    $(".name").val("");
+    $()
+})
+
+database.ref().on("child_added", function(snapshot) {
+    console.log(snapshot.val());
+    var tableRow = $("<tr>");
+    var newName = $("<td>").text(snapshot.val().name);
+    var newRole = $("<td>").text(snapshot.val().row);
+    var startDate = $("<td>").text(snapshot.val().startDate);
+    var rate = $("<td>").text(snapshot.val().rate);
+    tableRow.append(newName).append(newRole).append(startDate).append(rate)
+    //var tax = $("<tr>").text()
+    $("table").append(tableRow);
 })
