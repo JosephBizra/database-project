@@ -1,9 +1,51 @@
 <!DOCTYPE html>
-<html>
-    <head>
-
-    </head>
-    <body>
-        
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="container">
+            <div class="header">
+                <div class="header-text">
+                    <h2>Employee Data Management</h2>
+                    <h3>A Comprehensive Directory of Employee Dillable Hours</h3>
+                </div>
+            </div>
+            <table>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Role</th>
+                    <th>Start Date</th>
+                    <th>Months Worked</th>
+                    <th>Monthly Rate ($)</th>
+                    <th>Total Billed ($)</th>
+                </tr>
+                <tr>
+                    <td>John Doe</td>
+                    <td>CEO</td>
+                    <td>01/08/1989</td>
+                    <td>365</td>
+                    <td>20000</td>
+                    <td>7300000</td>
+                </tr>
+            </table>
+            <form>
+                <label>Employer Name</label><br>
+                <input type="text" required><br>
+                <label>Role</label><br>
+                <input type="text" required><br>
+                <label>Start Date (MM/DD/YYYY)</label><br>
+                <input type="text" required><br>
+                <label>Monthly Rate</label><br>
+                <input type="number"><br>
+                <button type="submit" required">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
 </html>
