@@ -1,3 +1,14 @@
-body{
-    
+body {
+    margin: 0;
+    top: 0;
+}
+.header-text {
+    padding: 20px;
+    text-align: center;
+}
+.header {
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(61, 56, 56);
+    color: white;
 }
