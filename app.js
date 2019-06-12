@@ -11,7 +11,18 @@ const config = {
 firebase.initialize(config);
 var database = firebase.database();
 
-$("form").on("submit", function(event) {
+$(".employer-info").on("submit", function(event) {
     event.preventDefault();
-    
+    var name = $(".name").val().trim();
+    var role = $(".role").val().trim();
+    var startDate = $(".start-date").val().trim();
+    var rate = $(".role").val().trim();
+    var formObject = {
+        name: name,
+        role: role,
+        startDate: startDate,
+        rate: rate
+    }
+    database.ref().push(formObject);
+    return false;
 })
