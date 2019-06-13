@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <!--Firebase JS SDK-->
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
+
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!--CSS-->
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -34,19 +44,19 @@
                     <td>7300000</td>
                 </tr>
             </table>
-            <form>
+            <form class="employer-info">
                 <label>Employer Name</label><br>
-                <input type="text" required><br>
+                <input type="text" class="name"><br>
                 <label>Role</label><br>
-                <input type="text" required><br>
+                <input type="text" class="role"><br>
                 <label>Start Date (MM/DD/YYYY)</label><br>
-                <input type="text" required><br>
+                <input type="text" class="start-date"><br>
                 <label>Monthly Rate</label><br>
-                <input type="number"><br>
-                <button type="submit">Submit</button>
+                <input type="number" class="rate"><br>
+                <input type="submit">
             </form>
         </div>
     </div>
-    <script type="text/javascript" src="app.js">
+    <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
