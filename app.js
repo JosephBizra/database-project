@@ -11,31 +11,48 @@ const config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 
+var monthsWorked;
+
 $("form").on("submit", function(event) {
+    //prevent page from refreshing
     event.preventDefault();
+    //get the values from form input
     var name = $(".name").val().trim();
     var role = $(".role").val().trim();
     var startDate = $(".start-date").val().trim();
     var rate = $(".rate").val().trim();
+    //place the values obtained in an object
     var formObject = {
         name: name,
         role: role,
         startDate: startDate,
         rate: rate
     }
+    //push the object into the database
     database.ref().push(formObject);
+    //clear value from forms
     $(".name").val("");
-    $()
+    $(".role").val("");
+    $(".start-date").val("");
+    $(".rate").val("");
 })
 
+//update every time an object is added
 database.ref().on("child_added", function(snapshot) {
-    console.log(snapshot.val());
+    //difference between current time and start date
+    monthsWorked = moment().diff(moment(snapshot.val().startDate), "months");
+    //create row elements with the data from the form, pulling the info
+    //from the database
     var tableRow = $("<tr>");
     var newName = $("<td>").text(snapshot.val().name);
-    var newRole = $("<td>").text(snapshot.val().row);
+    var newRole = $("<td>").text(snapshot.val().role);
     var startDate = $("<td>").text(snapshot.val().startDate);
+    var months = $("<td>").text(monthsWorked);
     var rate = $("<td>").text(snapshot.val().rate);
-    tableRow.append(newName).append(newRole).append(startDate).append(rate)
-    //var tax = $("<tr>").text()
+    //snapshot.val().rate is a string, so need to parse it into a number
+    var billedNumber = monthsWorked * parseInt(snapshot.val().rate);
+    var totalBilled = $("<td>").text(billedNumber);
+    //append to html
+    tableRow.append(newName).append(newRole).append(startDate).append(months).append(rate).append(totalBilled);
     $("table").append(tableRow);
 })
